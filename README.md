@@ -1,4 +1,4 @@
-# <Scenery DOKOkai>
+# Scenery DOKOkai
 
 ## 心動かされる風景・情景
 ### サイトテーマ
