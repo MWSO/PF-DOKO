@@ -1,4 +1,4 @@
-# Scenery DOKOkai
+# DOKO
 
 ## 心動かされる風景・情景
 ### サイトテーマ
@@ -23,7 +23,10 @@
 - 家にいながらも現地さながらの雰囲気を追体験したい時
 
 ## 設計書
-設計途中です
+https://drive.google.com/file/d/1EHeU2JCHq-VwiaoeFs1QtewMFXFl-j1J/view?usp=sharing
+https://drive.google.com/file/d/1W926Z9hsQNRaaOKU-KkuEc3PqWwP0Jmr/view?usp=sharing
+https://drive.google.com/file/d/1IzmZbtfqDVVDkwxUN1t1iMpUNkey0qnz/view?usp=sharing
+https://drive.google.com/file/d/1T28IRi4Y1LI0x6m0mCSjQYAvxEdwnhHR/view?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
