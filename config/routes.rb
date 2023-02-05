@@ -1,47 +1,40 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'tags/index'
+
+  devise_for :admins, skip: [:registrations, :passwords], controllers: {
+  sessions: "admin/sessions"
+  }
+
+  devise_for :users,skip: [:passwords], controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+  }
+
+#ユーザー側
+  scope module: :public do
+    root to: 'homes#top'
+    get 'homes/about' => "homes#about", as: "about"
+
+    get 'users/withdrawal' => "users#withdrawal", as: "withdrawal"
+    get 'users/my_page' => "users#my_page", as: "my_page"
+    resources :users, only: [:index, :show, :edit, :update]
+
+    resources :posts
+
+    resources :favorites, only: [:index]
+
+    resources :comments, only: [:index, :update, :destroy]
+
+    resources :tag_relations, only: [:index, :create, :update, :destroy]
   end
+  #管理者側
   namespace :admin do
-    get 'tags/index'
+    resources :tags, only: [:index, :edit, :create, :update, :destroy]
+
+    resources :comments, only: [:index, :destroy]
+
+    resources :posts, only: [:index, :show, :destroy]
+
+    resources :users, only: [:index, :show, :update]
   end
-  namespace :admin do
-    get 'comments/index'
-  end
-  namespace :admin do
-    get 'posts/index'
-    get 'posts/show'
-  end
-  namespace :admin do
-    get 'users/index'
-    get 'users/show'
-  end
-  namespace :public do
-    get 'tag_relations/index'
-  end
-  namespace :public do
-    get 'comments/index'
-  end
-  namespace :public do
-    get 'favorites/index'
-  end
-  namespace :public do
-    get 'posts/index'
-    get 'posts/show'
-    get 'posts/edit'
-    get 'posts/new'
-  end
-  namespace :public do
-    get 'users/index'
-    get 'users/show'
-    get 'users/edit'
-    get 'users/my_page'
-  end
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
-  end
-  devise_for :admins
-  devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

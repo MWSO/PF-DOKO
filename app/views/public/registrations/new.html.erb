@@ -1,11 +1,26 @@
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "publics/shared/error_messages", resource: resource %>
+  <%= render "public/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :name, "名前" %><br>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder: "ニックネーム" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :like, "好きな雰囲気・写真" %><br>
+    <%= f.text_field :like, autocomplete: "like",placeholder: "空欄可" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :introduction, "自己紹介" %><br>
+    <%= f.text_area :introduction, autocomplete: "introduction",placeholder: "空欄可" %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
   <div class="field">
