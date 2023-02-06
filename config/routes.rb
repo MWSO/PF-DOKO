@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
     get 'users/withdrawal' => "users#withdrawal", as: "withdrawal"
     get 'users/my_page' => "users#my_page", as: "my_page"
+    patch "users/status" => "users#status", as: "status"
     resources :users, only: [:index, :show, :edit, :update]
 
     resources :posts
