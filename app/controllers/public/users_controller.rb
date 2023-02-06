@@ -5,6 +5,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @post = @user.posts.all
   end
 
   def edit
@@ -13,12 +14,17 @@ class Public::UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    user.update(user_params)
-    redirect_to user_path(user)
+    if user == current_user
+      user.update(user_params)
+      redirect_to user_path(user)
+    else
+      redirect_to my_page_path
+    end
   end
 
   def my_page
     @user = current_user
+    @post = @user.posts.all
   end
 
   def withdrawal
