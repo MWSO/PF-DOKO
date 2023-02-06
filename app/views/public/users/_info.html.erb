@@ -1,0 +1,36 @@
+<div class= "container">
+  <div class= "row">
+    <!--プロフィール画像-->
+    <div class= "col-3">
+      <%= image_tag user.get_profile_image(300,300) %>
+    </div>
+    <!--プロフィール本文-->
+    <div class= "col-6">
+      <table class= "table">
+        <tr>
+          <th>名前</th>
+          <td> <%= user.name %></td>
+        </tr>
+        <tr>
+          <th>自己紹介</th>
+          <td><%= user.introduction %></td>
+        </tr>
+        <tr>
+          <th>好きな風景</th>
+          <td><%= user.like %></td>
+        </tr>
+        <tr>
+          <th>ブックマーク</th>
+          <td><!--favoriteのリンク,〇件のブックマーク--></td>
+        </tr>
+        <tr>
+          <th>コメント履歴</th>
+          <td><!--commentのリンク,〇件のコメント--></td>
+        </tr>
+        <% if user == current_user %>
+          <td><%= link_to "編集する", edit_user_path(current_user) %></td>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
