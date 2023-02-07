@@ -4,6 +4,8 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
    before_action :configure_permitted_parameters, if: :devise_controller?
+   before_action :ensure_general_user, only: [:update, :destroy]
+
 
   # GET /resource/sign_up
   # def new
@@ -45,6 +47,11 @@ class Public::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :like, :introduction, :is_deleted])
   end
 
+ def ensure_general_user
+    if resource.email == "guest@gmail.com"
+      redirect_to root_path, alert: "ゲストユーザーの変更・削除はできません"
+    end
+ end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

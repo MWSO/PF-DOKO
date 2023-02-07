@@ -1,15 +1,18 @@
 <h2>参加者の皆様</h2>
 
 <% @users.each do |user| %>
-  <%= link_to user_path(user) do %>
-    <div><%= image_tag user.get_profile_image(200,200) %></div>
-    <div>
-      名前:<%= user.name %><br>
-      好きな風景:<%= user.like %>
-    </div>
-    <div>
-      <!--最近の投稿-->
-    </div>
+  <% if user.email == "guest@gmail.com" %>
+  <% else %>
+    <%= link_to user_path(user) do %>
+      <div><%= image_tag user.get_profile_image(200,200) %></div>
+      <div>
+        名前:<%= user.name %><br>
+        好きな風景:<%= user.like %>
+      </div>
+      <div>
+        <!--最近の投稿-->
+      </div>
+    <% end %>
   <% end %>
 <% end %>
 
