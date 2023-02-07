@@ -1,6 +1,9 @@
 <div class= "container">
   <div class= "row">
     <h2>マイページ</h2>
+  </div>
+
+  <div class= "row">
     <%= render "public/users/info", user: @user %>
   </div>
 
@@ -12,3 +15,9 @@
       <%= link_to "新規投稿",  new_post_path, class: "btn btn-primary" %>
     </div>
   </div>
+
+  <!-- 自分の投稿一覧 -->
+  <div class= "row">
+    <%= render "public/posts/user", user: @user, posts: @post %>
+  </div>
+</div>
