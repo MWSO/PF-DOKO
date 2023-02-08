@@ -5,11 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts
-  has_many :favorites
-  has_many :comments
+  has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   has_one_attached :profile_image
 
+  #プロフィール画像表示用のメソッド
   def get_profile_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join("app/assets/images/photo0000-6152.jpg")
@@ -18,6 +19,7 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
+  #ゲストログイン用のメソッド
   def self.guest
     find_or_create_by!(email: 'guest@gmail.com') do |user|
       user.password = SecureRandom.urlsafe_base64

@@ -22,13 +22,15 @@ Rails.application.routes.draw do
     patch "users/status" => "users#status", as: "status"
     resources :users, only: [:index, :show, :edit, :update]
 
-    resources :posts
+    resources :posts do
 
-    resources :favorites, only: [:index]
+      get "users/favorites" => "favorites#index", as: "favorites"
+      resource :favorites, only: [:create, :destroy]
 
-    resources :comments, only: [:index, :update, :destroy]
+      resources :comments, only: [:index, :create, :update, :destroy]
 
-    resources :tag_relations, only: [:index, :create, :update, :destroy]
+      resources :tag_relations, only: [:index, :create, :update, :destroy]
+    end
   end
   #管理者側
   namespace :admin do
