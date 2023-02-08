@@ -7,14 +7,14 @@
     <div class= "col-auto">
       <div class= "d-flex flex-wrap">
         <% @posts.each do |post_image| %>
-          <%= link_to post_path(post_image) do %>
+          <%= link_to admin_post_path(post_image) do %>
             <div class="clearfix border p-3 border-info">
               <div class="float-none mb-2">
                 <%= image_tag post_image.get_post_image(200,200), class: "img-fluid" %>
               </div>
               <div class= "text-center">
                 <%= post_image.title %>
-                <%= link_to "削除", admin_post_path(post_image), method: :delete, class: "btn btn-danger btn-sm" %>
+                <%= link_to "削除", admin_post_path(post_image), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-sm" %>
               </div>
             </div>
           <% end %>
