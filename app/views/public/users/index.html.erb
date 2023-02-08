@@ -2,6 +2,7 @@
 
 <% @users.each do |user| %>
   <% if user.email == "guest@gmail.com" %>
+  <% elsif user.is_deleted == true %>
   <% else %>
     <%= link_to user_path(user) do %>
       <div><%= image_tag user.get_profile_image(200,200) %></div>

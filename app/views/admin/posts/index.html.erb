@@ -1,2 +1,25 @@
-<h1>Admin::Posts#index</h1>
-<p>Find me in app/views/admin/posts/index.html.erb</p>
+<div class= "container">
+  <div class= "row">
+    投稿一覧
+  </div>
+
+  <div class= "row">
+    <div class= "col-auto">
+      <div class= "d-flex flex-wrap">
+        <% @posts.each do |post_image| %>
+          <%= link_to post_path(post_image) do %>
+            <div class="clearfix border p-3 border-info">
+              <div class="float-none mb-2">
+                <%= image_tag post_image.get_post_image(200,200), class: "img-fluid" %>
+              </div>
+              <div class= "text-center">
+                <%= post_image.title %>
+                <%= link_to "削除", admin_post_path(post_image), method: :delete, class: "btn btn-danger btn-sm" %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

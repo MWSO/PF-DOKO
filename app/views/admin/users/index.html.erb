@@ -1,2 +1,39 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<div class= "container">
+  <div class= "row">
+    <h2>会員一覧</h2>
+  </div>
+
+    <div class= "mx-auto">
+      <table class= "table">
+        <!-- 表題-->
+        <thead>
+          <tr>
+            <th>顔写真</th>
+            <th>名前</th>
+            <th>好きな風景</th>
+            <th>会員ステータス</th>
+          </tr>
+        </thead>
+        <!--会員の情報-->
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= image_tag user.get_profile_image(100,100),class: "img-fluid" %></td>
+              <td><%= user.name %></td>
+              <td><%= user.like %></td>
+              <td>
+                <%= link_to admin_user_path(user) do %>
+                  <% if user.is_deleted %>
+                    退会済み
+                  <% else %>
+                    有効
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

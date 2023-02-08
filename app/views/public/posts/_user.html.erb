@@ -1,20 +1,22 @@
 <div class= "mx-auto">
-  <% if posts.exists? %>
-  <!--post_image=投稿物、投稿を4つごとに折り返す-->
-    <% posts.each do |post_image| %>
-      <%= link_to post_path(post_image) do %>
-        <div class="clearfix border p-3 border-info">
-          <div class="float-none mb-2">
-            <%= image_tag post_image.get_post_image(200,200) %>
+  <div class= "d-flex flex-wrap">
+    <% if posts.exists? %>
+    <!--post_image=投稿物、投稿を4つごとに折り返す-->
+      <% posts.each do |post_image| %>
+        <%= link_to post_path(post_image) do %>
+          <div class="clearfix border p-3 border-info">
+            <div class="float-none mb-2">
+              <%= image_tag post_image.get_post_image(200,200), class: "img-fluid" %>
+            </div>
+            <div class= "text-center">
+              <%= post_image.title %>
+            </div>
           </div>
-          <div class= "text-center">
-            <%= post_image.title %>
-          </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
 
-  <% else %>
-    <%= user.name %>さんの投稿はありません。
-  <% end %>
+    <% else %>
+      <%= user.name %>さんの投稿はありません。
+    <% end %>
+  </div>
 </div>
