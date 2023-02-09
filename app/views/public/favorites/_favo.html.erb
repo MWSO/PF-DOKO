@@ -1,0 +1,16 @@
+<div>ブックマークされた数:<%= @post.favorites.count %>件</div>
+<% unless @post.user_id == current_user.id %>
+  <% if post_image.favorited_by?(current_user) %>
+    <div>
+      <%= link_to post_favorites_path(post_image), method: :delete, remote: true do %>
+        ブックマークを外す<i class="fas fa-star" style="color: gold"></i>
+      <% end %>
+    </div>
+  <% else %>
+    <div>
+     <%= link_to post_favorites_path(post_image), method: :post, remote: true do %>
+       ブックマークに追加<i class="fas fa-star"></i>
+     <% end %>
+    </div>
+  <% end %>
+<% end %>

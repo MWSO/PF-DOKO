@@ -1,21 +1,25 @@
 <div class= "container">
   <div class= "row">
     <!-- 画像表示側-->
-    <div class= "">
+    <div class= "col-auto">
       <%= image_tag @post.get_post_image(1000,1000), class: "img-fluid" %>
+    </div>
 
+    <div class= "col-auto">
     <!--投稿説明文側-->
       <div>タイトル：<%= @post.title %></div>
       <div>説明文：<%= @post.body %></div>
       <div>ロケーション：<%= @post.location %></div>
       <div><!--タグ--></div>
+      <!-- ブックマーク非同期化-->
+      <div id= "favorite_button_<%= @post.id %>">
+        <%= render "public/favorites/favo", post_image: @post %>
+      </div>
+    <!--編集・削除リンク-->
+      <% if @post.user_id == current_user.id %>
+        <span><%= link_to "投稿の編集", edit_post_path(@post), class: "btn btn-success" %></span>
+        <span><%= link_to "投稿の削除", post_path(@post), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger" %></span>
+      <% end %>
     </div>
   </div>
-
-    <!--編集・削除リンク-->
-    <% if @post.user_id == current_user.id %>
-      <span><%= link_to "投稿の編集", edit_post_path(@post), class: "btn btn-success" %></span>
-      <span><%= link_to "投稿の削除", post_path(@post), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger" %></span>
-    <% end %>
-
 </div>

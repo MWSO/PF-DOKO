@@ -20,15 +20,20 @@ Rails.application.routes.draw do
     get 'users/withdrawal' => "users#withdrawal", as: "withdrawal"
     get 'users/my_page' => "users#my_page", as: "my_page"
     patch "users/status" => "users#status", as: "status"
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update] do
+      member do
+        get :my_list
+      end
+    end
 
-    resources :posts
+    resources :posts do
 
-    resources :favorites, only: [:index]
+      resource :favorites, only: [:create, :destroy]
 
-    resources :comments, only: [:index, :update, :destroy]
+      resources :comments, only: [:index, :create, :update, :destroy]
 
-    resources :tag_relations, only: [:index, :create, :update, :destroy]
+      resources :tag_relations, only: [:index, :create, :update, :destroy]
+    end
   end
   #管理者側
   namespace :admin do
