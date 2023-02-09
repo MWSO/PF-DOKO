@@ -12,8 +12,10 @@
       <div>ロケーション：<%= @post.location %></div>
       <div><!--タグ--></div>
       <div>ブックマークされた数:<%= @post.favorites.count %>件</div>
-      <% unless @post.user_id = current_user.id %>
-        <%= render "public/favorites/favo", post_image: @post %>
+      <% unless @post.user_id == current_user.id %>
+        <div id= "favorite_button_<%= @post.id %>">
+          <%= render "public/favorites/favo", post_image: @post %>
+        </div>
       <% end %>
     <!--編集・削除リンク-->
       <% if @post.user_id == current_user.id %>

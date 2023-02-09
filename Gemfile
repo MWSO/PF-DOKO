@@ -58,4 +58,4 @@ gem "devise"
 gem "kaminari"
 gem "ransack"
 gem 'pry-rails'
-
+gem "jquery-rails"
