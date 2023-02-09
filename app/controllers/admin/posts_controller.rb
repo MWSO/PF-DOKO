@@ -14,4 +14,9 @@ class Admin::PostsController < ApplicationController
     redirect_to admin_posts_path
   end
 
+  def my_list
+    @user = User.find(params[:id])
+    @posts = @user.favorites.all
+  end
+
 end

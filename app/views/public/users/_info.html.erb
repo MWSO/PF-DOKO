@@ -19,7 +19,11 @@
       </tr>
       <tr>
         <th>ブックマーク</th>
-        <td><!--favoriteのリンク,〇件のブックマーク--></td>
+        <td>
+          <%= link_to my_list_path(user) do %>
+            <%= user.favorites.count %>件
+          <% end %>
+        </td>
       </tr>
       <tr>
         <th>コメント履歴</th>

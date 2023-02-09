@@ -1,10 +1,5 @@
 class Public::FavoritesController < ApplicationController
 
-  def index
-    user = User.find(params[:id])
-    @favorites = user.favorites.all
-  end
-
   def create
     @post = Post.find(params[:post_id])
     favorite = current_user.favorites.new(post_id: @post.id)

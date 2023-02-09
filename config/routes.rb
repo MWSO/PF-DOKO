@@ -22,9 +22,9 @@ Rails.application.routes.draw do
     patch "users/status" => "users#status", as: "status"
     resources :users, only: [:index, :show, :edit, :update]
 
+    get "posts/my_list" => "posts#my_list", as: "my_list"
     resources :posts do
 
-      get "users/favorites" => "favorites#index", as: "favorites"
       resource :favorites, only: [:create, :destroy]
 
       resources :comments, only: [:index, :create, :update, :destroy]
