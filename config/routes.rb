@@ -20,9 +20,12 @@ Rails.application.routes.draw do
     get 'users/withdrawal' => "users#withdrawal", as: "withdrawal"
     get 'users/my_page' => "users#my_page", as: "my_page"
     patch "users/status" => "users#status", as: "status"
-    resources :users, only: [:index, :show, :edit, :update]
+    resources :users, only: [:index, :show, :edit, :update] do
+      member do
+        get :my_list
+      end
+    end
 
-    get "posts/my_list" => "posts#my_list", as: "my_list"
     resources :posts do
 
       resource :favorites, only: [:create, :destroy]

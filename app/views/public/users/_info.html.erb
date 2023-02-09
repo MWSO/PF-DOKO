@@ -20,7 +20,7 @@
       <tr>
         <th>ブックマーク</th>
         <td>
-          <%= link_to my_list_path(user) do %>
+          <%= link_to my_list_user_path(user) do %>
             <%= user.favorites.count %>件
           <% end %>
         </td>
