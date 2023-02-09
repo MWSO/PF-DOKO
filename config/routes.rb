@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
       resource :favorites, only: [:create, :destroy]
 
-      resources :comments, only: [:index, :create, :update, :destroy]
+      resources :comments, only: [:create, :update, :destroy]
 
       resources :tag_relations, only: [:index, :create, :update, :destroy]
     end
