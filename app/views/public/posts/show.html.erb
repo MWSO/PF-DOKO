@@ -16,9 +16,14 @@
         <%= render "public/favorites/favo", post_image: @post %>
       </div>
       <!--コメント　直近の5件表示＆コメ一覧へのリンク-->
-      <div>
-
-        全<%= @post.comment.count %>件のコメント
+      <div class= "comment_form">
+        <%= render "public/comments/form", post_image: @post, comment: @comment %>
+      </div>
+      <div class= "comment_area">
+        <%= render "public/comments/comment", comments: @post_comments %>
+        <%= link_to post_comment_path(@post) do %>
+          全<%= @post.comments.count %>件のコメント
+        <% end %>
       </div>
       <!--編集・削除リンク-->
       <% if @post.user_id == current_user.id %>
