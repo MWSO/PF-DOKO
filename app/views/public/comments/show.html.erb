@@ -5,14 +5,13 @@
 
   <div class= "row">
     <!--投稿履歴一覧-->
-    <div class= "col-auto">
+    <div>
       <%= render "public/comments/comment", comments: @comments %>
+      <%= paginate @comments %>
       <%= render "public/comments/form", post_image: @post, comment: @comment_new %>
-      <div>
-        <%= link_to post_path(@post) do %>
-          <p>写真の画面に戻る</p>
-        <% end %>
-      </div>
+      <%= link_to post_path(@post) do %>
+        <p>写真の画面に戻る</p>
+      <% end %>
     </div>
   </div>
 </div>

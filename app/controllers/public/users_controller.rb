@@ -1,5 +1,5 @@
 class Public::UsersController < ApplicationController
-  before_action :check_user, only: [:my_list]
+  before_action :check_user, only: [:my_list, :my_comment]
 
   def index
     @users = User.all
@@ -41,10 +41,9 @@ class Public::UsersController < ApplicationController
   end
 
   def my_list
-   favorite = Favorite.where(user_id: @user.id).pluck(:post_id)
-   @favo_posts = Post.find(favorite)
+    favorite = Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favo_posts = Post.find(favorite)
   end
-
 
 private
 
