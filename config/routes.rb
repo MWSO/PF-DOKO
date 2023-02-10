@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :edit, :update] do
       member do
         get :my_list
+        get :my_comment
       end
     end
 
@@ -30,7 +31,7 @@ Rails.application.routes.draw do
 
       resource :favorites, only: [:create, :destroy]
 
-      resources :comments, only: [:index, :create, :update, :destroy]
+      resources :comments, only: [:create, :destroy, :show]
 
       resources :tag_relations, only: [:index, :create, :update, :destroy]
     end

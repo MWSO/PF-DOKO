@@ -27,7 +27,9 @@
       </tr>
       <tr>
         <th>コメント履歴</th>
-        <td><!--commentのリンク,〇件のコメント--></td>
+        <td>
+          <%= user.comments.count %>件
+        </td>
       </tr>
       <td>
         <% if user == current_user %>
