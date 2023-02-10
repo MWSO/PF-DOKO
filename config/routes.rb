@@ -39,9 +39,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :tags, only: [:index, :edit, :create, :update, :destroy]
 
-    resources :comments, only: [:index, :destroy]
-
     resources :posts, only: [:index, :show, :destroy]
+
+    resources :comments, only: [:index, :destroy]
 
     resources :users, only: [:index, :show, :update]
   end
