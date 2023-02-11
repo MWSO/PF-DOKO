@@ -1,2 +1,16 @@
-<h1>Public::TagRelations#index</h1>
-<p>Find me in app/views/public/tag_relations/index.html.erb</p>
+<div class= "container">
+
+  <div class= "row">
+    <h2><%= @tag.name %>の一覧</h2>
+  </div>
+
+  <div class= "row">
+    <div class= "col-auto">
+      <div class= "d-flex flex-wrap">
+      <!--post_image=投稿物、投稿を4つごとに折り返す-->
+        <%= render "public/posts/list", posts: @posts, tag: @post_tags %>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -7,7 +7,9 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
       @post.user_id = current_user.id
+      tag_list = params[:post][:name].split(nil)
       if @post.save
+        @post.save_tag(tag_list)
         redirect_to post_path(@post)
       else
         redirect_to my_page_path
@@ -16,23 +18,28 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @tag_list = Tag.all
   end
 
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
     @post_comments = @post.comments.all.order(created_at: :desc).limit(5)
+    @post_tags = @post.tags
 
   end
 
   def edit
     @post = Post.find(params[:id])
+    @tag_list = @post.tags.pluck(:name).join(" ")
   end
 
   def update
     @post = Post.find(params[:id])
     if @post.user_id == current_user.id
       @post.update(post_params)
+      input_tags = params[:post][:name].split(nil)
+      @post.update_tags(input_tags)
       redirect_to post_path(@post)
     else
       redirect_to my_page_path
