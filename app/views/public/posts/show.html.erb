@@ -10,7 +10,13 @@
       <div>タイトル：<%= @post.title %></div>
       <div>説明文：<%= @post.body %></div>
       <div>ロケーション：<%= @post.location %></div>
-      <div><!--タグ--></div>
+      <div>タグ:
+        <% @post_tags.each do |tag| %>
+          <%= link_to tag_tag_relations_path(tag) do %>
+            <%= tag.name %><%= "(#{tag.posts.count})" %>
+          <% end %>
+        <% end %>
+      </div>
       <!-- ブックマーク非同期化-->
       <div id= "favorite_button_<%= @post.id %>">
         <%= render "public/favorites/favo", post_image: @post %>
