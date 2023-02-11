@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :tag_relations, dependent: :destroy
+  has_many :tags, through: :tag_relations
   belongs_to :user
 
   #投稿画像表示用のメソッド
