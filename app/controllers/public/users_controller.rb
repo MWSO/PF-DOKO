@@ -3,6 +3,8 @@ class Public::UsersController < ApplicationController
 
   def index
     @users = User.all
+    @post = Post.find(params[:id])
+    @post_tags = @post.tags
   end
 
   def show
@@ -43,6 +45,8 @@ class Public::UsersController < ApplicationController
   def my_list
     favorite = Favorite.where(user_id: @user.id).pluck(:post_id)
     @favo_posts = Post.find(favorite)
+    @post = Post.find(params[:id])
+    @post_tags = @post.tags
   end
 
 private
