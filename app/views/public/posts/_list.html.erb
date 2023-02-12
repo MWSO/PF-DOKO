@@ -7,10 +7,8 @@
       <div class= "text-center">
         <%= post_image.title %>
       </div>
-      <div>
-        <!--%= link_to tag_tag_relations_path(tag) do %-->
-          <i class= "fas fa-tag"><%= post_image.tags.map(&:name).join(" ") %></i>
-        <!--% end %-->
+      <div class= "text-center">
+        <i class= "fas fa-tag"></i><%= post_image.tags.map(&:name).join(" ") %>
       </div>
     </div>
   <% end %>

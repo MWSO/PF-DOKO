@@ -11,6 +11,9 @@
             <div class= "text-center">
               <%= post_image.title %>
             </div>
+            <div class= "text-center">
+              <i class= "fas fa-tag"></i><%= post_image.tags.map(&:name).join(" ") %>
+            </div>
           </div>
         <% end %>
       <% end %>

@@ -46,6 +46,15 @@
             <% end %>
           </ul>
         </div>
+        <!--検索窓-->
+
+        <div>
+          <%= search_form_for @search_posts, url: posts_path do |f| %>
+            <%= f.text_field :title_cont, placeholder: "タイトルを入力" %>
+            <%= f.submit "検索する" %>
+          <% end %>
+        </div>
+
       </div>
     </nav>
   </header>
