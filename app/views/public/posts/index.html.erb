@@ -1,8 +1,8 @@
 <div class= "container">
 
-  <% if params[:q].present? && params[:q][:title_cont].present? %>
+  <% if params[:q].present? && params[:q][:title_or_body_or_location_cont].present? %>
     <div class= "row">
-      <h2><%= params[:q][:title_cont] %>の検索結果一覧</h2>
+      <h2><%= params[:q][:title_or_body_or_location_cont] %>の検索結果一覧</h2>
     </div>
 
     <div class= "row">

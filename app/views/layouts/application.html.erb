@@ -50,7 +50,7 @@
 
         <div>
           <%= search_form_for @search_posts, url: posts_path do |f| %>
-            <%= f.text_field :title_cont, placeholder: "タイトルを入力" %>
+            <%= f.text_field :title_or_body_or_location_cont, placeholder: "キーワードを入力" %>
             <%= f.submit "検索する" %>
           <% end %>
         </div>

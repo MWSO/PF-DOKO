@@ -3,8 +3,6 @@ class Public::UsersController < ApplicationController
 
   def index
     @users = User.all
-    @post = Post.find(params[:id])
-    @post_tags = @post.tags
   end
 
   def show
