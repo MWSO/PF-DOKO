@@ -4,11 +4,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  #アソシエーション
   has_many :posts
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
 
   has_one_attached :profile_image
+
+  #バリデーション
+  validates :name, presence: true, length: { in: 2..10 }
+  validates :introduction, length: { maximum: 100 }
+  validates :like, length: { maximum: 15 }
+  validates :is_deleted, inclusion: { in: [true, false] }
 
   #プロフィール画像表示用のメソッド
   def get_profile_image(width, height)
