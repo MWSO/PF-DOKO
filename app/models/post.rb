@@ -1,11 +1,18 @@
 class Post < ApplicationRecord
 
+  #アソシエーション
   has_one_attached :post_image
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :tag_relations, dependent: :destroy
   has_many :tags, through: :tag_relations
   belongs_to :user
+
+  #バリデーション
+  validates :post_image, presence: true
+  validates :title, presence: true, length: { in: 1..20 }
+  validates :body, presence: true, length: { in: 1..150 }
+  validates :location, presence: true, length: { in: 1..20 }
 
   #投稿画像表示用のメソッド
   def get_post_image(width, height)

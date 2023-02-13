@@ -12,7 +12,7 @@ class Public::PostsController < ApplicationController
         @post.save_tag(tag_list)
         redirect_to post_path(@post)
       else
-        redirect_to my_page_path
+        render :new
       end
   end
 
@@ -39,10 +39,13 @@ class Public::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.user_id == current_user.id
-      @post.update(post_params)
-      input_tags = params[:post][:name].split(nil)
-      @post.update_tags(input_tags)
-      redirect_to post_path(@post)
+      if @post.update(post_params)
+        input_tags = params[:post][:name].split(nil)
+        @post.update_tags(input_tags)
+        redirect_to post_path(@post)
+      else
+        render :edit
+      end
     else
       redirect_to my_page_path
     end

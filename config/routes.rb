@@ -33,7 +33,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy, :show]
 
     end
-    
+
     resources :tags do
       resources :tag_relations, only: [:index]
     end
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   end
   #管理者側
   namespace :admin do
-    resources :tags, only: [:index, :edit, :create, :update, :destroy]
+    resources :tags, only: [:index, :destroy]
 
     resources :posts, only: [:index, :show, :destroy]
 
