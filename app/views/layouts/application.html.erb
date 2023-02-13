@@ -10,49 +10,49 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header>
+  <header class= "bg-secondary bg-opacity-50">
     <nav class= "navbar navbar-expand-lg">
       <div class= "container">
-          <!--ロゴ、ホームへのリンク-->
-          <%= link_to root_path do %>
-            ロゴ
-          <% end %>
+        <!--ロゴ、ホームへのリンク-->
+        <%= link_to root_path do %>
+          <%= image_tag "日本地図のアイコン", alt: "ロゴアイコン", size: "50x50" %>
+        <% end %>
         <!-- メニューバー-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"><i class="fas fa-star"></i></span>
+          <span class="navbar-toggler-icon text-white"><i class="fas fa-bars"></i></span>
         </button>
         <div class= "collapse navbar-collapse" id= "navbarNavDropdown">
           <!--ナビバー内リンク-->
-          <ul class="navbar-nav">
+          <ul class="navbar-nav text-white">
             <!--利用者サインイン時-->
             <% if user_signed_in? %>
-              <div>ようこそ、<%= current_user.name %>さん！</div>
-              <li class= "nav-item"><%= link_to "マイページ", my_page_path %></li>
-              <li class= "nav-item"><%= link_to "投稿一覧", posts_path %></li>
-              <li class= "nav-item"><%= link_to "ユーザー一覧", users_path %></li>
-              <li class= "nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+              <div class= "pl-3 pr-3">ようこそ、<%= current_user.name %>さん！</div>
+              <li class= "nav-item pl-3 pr-3"><%= link_to "マイページ", my_page_path, class: "text-white" %></li>
+              <li class= "nav-item pl-3 pr-3"><%= link_to "投稿一覧", posts_path, class: "text-white" %></li>
+              <li class= "nav-item pl-3 pr-3"><%= link_to "ユーザー一覧", users_path, class: "text-white" %></li>
+              <li class= "nav-item pl-3 pr-3"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white" %></li>
             <!--管理者サインイン時-->
             <% elsif admin_signed_in? %>
-              <li class= "nav-item"><%= link_to "ユーザー一覧", admin_users_path %></li>
-              <li class= "nav-item"><%= link_to "投稿一覧", admin_posts_path %></li>
-              <li class= "nav-item"><%= link_to "コメント一覧", admin_comments_path %></li>
-              <li class= "nav-item"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+              <li class= "nav-item pl-3 pr-3"><%= link_to "ユーザー一覧", admin_users_path, class: "text-white" %></li>
+              <li class= "nav-item pl-3 pr-3"><%= link_to "投稿一覧", admin_posts_path, class: "text-white" %></li>
+              <li class= "nav-item pl-3 pr-3"><%= link_to "コメント一覧", admin_comments_path, class: "text-white" %></li>
+              <li class= "nav-item pl-3 pr-3"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "text-white" %></li>
            <!--サインアウト時-->
            <% else %>
-              <li class= "nav-item"><%= link_to "ホーム", root_path %></li>
-              <li class= "nav-item"><%= link_to "アバウト", about_path %></li>
-              <li class= "nav-item"><%= link_to "ログイン", new_user_session_path %></li>
-              <li class= "nav-item"><%= link_to "新規登録", new_user_registration_path %></li>
+              <li class= "nav-item pl-3 pr-3"><%= link_to "ホーム", root_path, class: "text-white" %></li>
+              <li class= "nav-item pl-3 pr-3"><%= link_to "アバウト", about_path, class: "text-white" %></li>
+              <li class= "nav-item pl-3 pr-3"><%= link_to "ログイン", new_user_session_path, class: "text-white" %></li>
+              <li class= "nav-item pl-3 pr-3"><%= link_to "新規登録", new_user_registration_path, class: "text-white" %></li>
             <% end %>
           </ul>
         </div>
         <!--検索窓-->
 
-        <div>
+        <div class= "text-white">
           <%= search_form_for @search_posts, url: posts_path do |f| %>
             <%= f.label :title_or_body_or_location_cont, "写真検索" %>
             <%= f.text_field :title_or_body_or_location_cont, placeholder: "キーワードを入力" %>
-            <%= f.submit "検索する" %>
+            <%= f.submit "検索する", class: "btn btn-success btn-sm" %>
           <% end %>
         </div>
 

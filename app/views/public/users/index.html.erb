@@ -1,16 +1,26 @@
-<h2>参加者の皆様</h2>
+<div class= "container">
+  <div class= "row">
+    <h2>参加者の皆様</h2>
+  </div>
 
-<% @users.each do |user| %>
-  <% if user.email == "guest@gmail.com" %>
-  <% elsif user.is_deleted == true %>
-  <% else %>
-    <%= link_to user_path(user) do %>
-      <div><%= image_tag user.get_profile_image(200,200) %></div>
-      <div>
-        名前:<%= user.name %><br>
-        好きな風景:<%= user.like %>
-      </div>
-    <% end %>
-  <% end %>
-<% end %>
+  <div class= "row">
+    <div class= "col-auto d-flex flex-wrap">
+      <% @users.each do |user| %>
+        <% if user.email == "guest@gmail.com" %>
+        <% elsif user.is_deleted == true %>
+        <% else %>
+          <div class= "mr-3">
+            <%= link_to user_path(user) do %>
+              <div><%= image_tag user.get_profile_image(200,200) %></div>
+              <div>
+                名前:<%= user.name %><br>
+                好きな風景:<%= user.like %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
