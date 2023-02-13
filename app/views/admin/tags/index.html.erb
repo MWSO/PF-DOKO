@@ -1,2 +1,16 @@
-<h1>Admin::Tags#index</h1>
-<p>Find me in app/views/admin/tags/index.html.erb</p>
+<div class= "container">
+  <div class= "row">
+    <h3>タグ一覧</h3>
+  </div>
+
+  <div class= "row">
+    <div class= "col-auto">
+      <% @tags.each do |tag| %>
+        <span class= "m-3">
+          <%= tag.name %>
+          <%= link_to "削除", admin_tag_path(tag), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-sm" %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+</div>

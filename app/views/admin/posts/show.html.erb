@@ -10,7 +10,11 @@
       <div>タイトル：<%= @post.title %></div>
       <div>説明文：<%= @post.body %></div>
       <div>ロケーション：<%= @post.location %></div>
-      <div><!--タグ--></div>
+      <div>タグ:
+        <% @post_tags.each do |tag| %>
+            <%= tag.name %><%= "(#{tag.posts.count})" %>
+        <% end %>
+      </div>
       <div><%= link_to "投稿削除", admin_post_path(@post), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-block" %></div>
     </div>
   </div>
