@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        introduction: 自己紹介
+        like: 好きな写真
+
+      post:
+        title: タイトル
+        body: 紹介文
+        location: 場所
+        post_image: 投稿写真
+
+      comment:
+        comment: コメント

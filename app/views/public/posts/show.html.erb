@@ -23,6 +23,7 @@
       </div>
       <!--コメント　直近の5件表示＆コメ一覧へのリンク-->
       <div class= "comment_form">
+        <%= render "layouts/errors", model: @post %>
         <%= render "public/comments/form", post_image: @post, comment: @comment %>
       </div>
       <div class= "comment_area">
