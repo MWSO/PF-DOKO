@@ -60,3 +60,4 @@ gem "ransack"
 gem 'pry-rails'
 gem "jquery-rails"
 gem 'acts-as-taggable-on'
+gem 'rails-i18n'
