@@ -1,0 +1,20 @@
+<h3>おすすめの投稿</h3>
+<h4>タグ人気順</h4>
+<p>タグ名</p>
+<% tags.each do |tag| %>
+  <div>
+    <%= link_to tag_tag_relations_path(tag) do %>
+      <%= tag.name %><%= "(#{tag.posts.count})" %>
+    <% end %>
+  </div>
+<% end %>
+
+<h4>ブックマーク数順</h4>
+<p>投稿写真</p>
+<% posts.each do |post| %>
+  <div>
+    <%= link_to post_path(post) do %>
+      <%= post.title %><%= "(#{post.favorites.count})" %>
+    <% end %>
+  </div>
+<% end %>
