@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :check_user, only: [:my_list, :my_comment]
+  before_action :authenticate_user!
 
   def index
     @users = User.all

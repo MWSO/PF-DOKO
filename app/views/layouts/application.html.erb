@@ -15,8 +15,18 @@
       <div class= "container">
         <!--ロゴ、ホームへのリンク-->
         <%= link_to root_path do %>
-          <%= image_tag "日本地図のアイコン", alt: "ロゴアイコン", size: "50x50" %>
+          <%= image_tag "DOKO (1).jpg", alt: "ロゴアイコン", size: "50x50" %>
         <% end %>
+
+         <!--検索窓-->
+        <div class= "text-white">
+          <%= search_form_for @search_posts, url: posts_path do |f| %>
+            <%= f.label :title_or_body_or_location_cont, "写真検索" %>
+            <%= f.text_field :title_or_body_or_location_cont, placeholder: "キーワードを入力" %>
+            <%= f.submit "検索する", class: "btn btn-success btn-sm" %>
+          <% end %>
+        </div>
+
         <!-- メニューバー-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon text-white"><i class="fas fa-bars"></i></span>
@@ -47,16 +57,6 @@
             <% end %>
           </ul>
         </div>
-        <!--検索窓-->
-
-        <div class= "text-white">
-          <%= search_form_for @search_posts, url: posts_path do |f| %>
-            <%= f.label :title_or_body_or_location_cont, "写真検索" %>
-            <%= f.text_field :title_or_body_or_location_cont, placeholder: "キーワードを入力" %>
-            <%= f.submit "検索する", class: "btn btn-success btn-sm" %>
-          <% end %>
-        </div>
-
       </div>
     </nav>
   </header>
