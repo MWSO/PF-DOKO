@@ -8,7 +8,7 @@ ja:
 
       post:
         title: タイトル
-        body: 紹介文
+        body: 説明文
         location: 場所
         post_image: 投稿写真
 

@@ -14,6 +14,9 @@ class Post < ApplicationRecord
   validates :body, presence: true, length: { in: 1..150 }
   validates :location, presence: true, length: { in: 1..20 }
 
+  #投稿の公開・非公開変更
+  enum status: { opened: 0, closed: 1 }
+
   #投稿画像表示用のメソッド
   def get_post_image(width, height)
     unless post_image.attached?
