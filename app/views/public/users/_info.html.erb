@@ -1,0 +1,47 @@
+<!--プロフィール画像-->
+  <div class= "col-4">
+    <%= image_tag user.get_profile_image(300,300), class: "img-fluid" %>
+  </div>
+  <!--プロフィール本文-->
+  <div class= "col-5">
+    <table class= "table">
+      <tr>
+        <th>名前</th>
+        <td> <%= user.name %></td>
+      </tr>
+      <tr>
+        <th>自己紹介</th>
+        <td><%= user.introduction %></td>
+      </tr>
+      <tr>
+        <th>好きな風景</th>
+        <td><%= user.like %></td>
+      </tr>
+      <tr>
+        <th>ブックマーク</th>
+        <td>
+          <%= link_to my_list_user_path(user) do %>
+            <%= user.favorites.count %>件
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <th>コメント回数</th>
+        <td>
+          <%= user.comments.count %>件
+        </td>
+      </tr>
+      <td>
+        <% if user == current_user %>
+          <%= link_to "編集する", edit_user_path(current_user), class: "btn btn-success btn-block" %>
+        <% end %>
+      </td>
+    </table>
+  </div>
+
+  <div class= "col-4"></div>
+  <div class= "col-5", style= "margin-bottom: 30px;">
+    <% if user == current_user %>
+      <%= link_to "退会する", withdrawal_path, class: "btn btn-danger btn-block" %>
+    <% end %>
+  </div>

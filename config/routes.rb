@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   registrations: "public/registrations",
   sessions: 'public/sessions'
   }
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'public/sessions#guest_sign_in', as: "guest"
+  end
 
 #ユーザー側
   scope module: :public do
@@ -16,23 +19,33 @@ Rails.application.routes.draw do
 
     get 'users/withdrawal' => "users#withdrawal", as: "withdrawal"
     get 'users/my_page' => "users#my_page", as: "my_page"
-    resources :users, only: [:index, :show, :edit, :update]
+    patch "users/status" => "users#status", as: "status"
+    resources :users, only: [:index, :show, :edit, :update] do
+      member do
+        get :my_list
+      end
+    end
 
-    resources :posts
+    resources :posts do
 
-    resources :favorites, only: [:index]
+      resource :favorites, only: [:create, :destroy]
 
-    resources :comments, only: [:index, :update, :destroy]
+      resources :comments, only: [:create, :destroy, :show]
 
-    resources :tag_relations, only: [:index, :create, :update, :destroy]
+    end
+
+    resources :tags do
+      resources :tag_relations, only: [:index]
+    end
+
   end
   #管理者側
   namespace :admin do
-    resources :tags, only: [:index, :edit, :create, :update, :destroy]
-
-    resources :comments, only: [:index, :destroy]
+    resources :tags, only: [:index, :destroy]
 
     resources :posts, only: [:index, :show, :destroy]
+
+    resources :comments, only: [:index, :destroy]
 
     resources :users, only: [:index, :show, :update]
   end

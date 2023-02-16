@@ -1,2 +1,22 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<!--論理削除用記述-->
+<% if @user.is_deleted == false %>
+  <div class= "container">
+    <div class= "row">
+      <%= @user.name %>さんのプロフィール
+      <%= render "public/users/info", user: @user %>
+    </div>
+
+  <div class= "row">
+    <h2><%= @user.name %>さんの投稿</h2>
+  </div>
+
+     <!-- このユーザーの投稿一覧-->
+    <div class= "row">
+      <%= render "public/posts/user", user: @user, posts: @post %>
+    </div>
+  </div>
+<% else %>
+  <div class= "text-center">
+    このユーザーは退会済みです
+  </div>
+<% end %>

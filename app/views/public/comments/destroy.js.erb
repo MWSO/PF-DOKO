@@ -1,0 +1,4 @@
+$("#post_<%= @post.id %>.comments-count").html("コメント数: <%= @post.comments.count %>");
+$("#comment_form").html("<%= j(render "public/comments/form", post_image: @post, comment: @comment) %>");
+$("#comment_area").html("<%= j(render "public/comments/comment", comments: @comment) %>");
+$("#comment_form").val("");

@@ -1,2 +1,32 @@
-<h1>Public::Posts#index</h1>
-<p>Find me in app/views/public/posts/index.html.erb</p>
+<div class= "container">
+
+  <% if params[:q].present? && params[:q][:title_or_body_or_location_cont].present? %>
+    <div class= "row">
+      <h2><%= params[:q][:title_or_body_or_location_cont] %>の検索結果一覧</h2>
+    </div>
+
+    <div class= "row">
+      <div class= "col-auto">
+        <div class= "d-flex flex-wrap">
+        <!--post_image=投稿物、投稿を4つごとに折り返す-->
+          <%= render "public/posts/list", posts: @search_result %>
+        </div>
+      </div>
+    </div>
+
+  <% else %>
+    <div class= "row">
+      <h2>投稿一覧</h2>
+    </div>
+
+    <div class= "row">
+      <div class= "col-auto">
+        <div class= "d-flex flex-wrap">
+        <!--post_image=投稿物、投稿を4つごとに折り返す-->
+          <%= render "public/posts/list", posts: @posts %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+</div>
