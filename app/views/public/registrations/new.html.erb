@@ -1,45 +1,54 @@
-<h2>新規登録</h2>
+<div class= "d-flex justify-content-center h-100">
+    <div class= "card">
+      <div class= "card-header">
+        <h2>新規登録</h2>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
+      <div class= "card-body">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "public/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name, "名前" %><br>
-    <%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder: "ニックネーム" %>
+          <div class="field">
+            <%= f.label :name, "名前" %><br>
+            <%= f.text_field :name, autofocus: true, autocomplete: "name",placeholder: "ニックネーム" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :like, "好きな雰囲気・写真" %><br>
+            <%= f.text_field :like, autocomplete: "like",placeholder: "空欄可" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :introduction, "自己紹介" %><br>
+            <%= f.text_area :introduction, autocomplete: "introduction",placeholder: "空欄可" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autocomplete: "email", placeholder: "メールアドレス" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "新規登録", class: "btn btn-success" %>
+          </div>
+        <% end %>
+
+        <%= render "public/shared/links" %>
+        <%= link_to "ゲストとしてログイン", guest_path, method: :post %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :like, "好きな雰囲気・写真" %><br>
-    <%= f.text_field :like, autocomplete: "like",placeholder: "空欄可" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :introduction, "自己紹介" %><br>
-    <%= f.text_area :introduction, autocomplete: "introduction",placeholder: "空欄可" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email", placeholder: "メールアドレス" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "新規登録" %>
-  </div>
-<% end %>
-
-<%= render "public/shared/links" %>
-<%= link_to "ゲストとしてログイン", guest_path, method: :post %>
+</div>

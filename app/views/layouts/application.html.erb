@@ -15,7 +15,7 @@
       <div class= "container">
         <!--ロゴ、ホームへのリンク-->
         <%= link_to root_path do %>
-          <%= image_tag "DOKO (1).jpg", alt: "ロゴアイコン", size: "50x50" %>
+          <%= image_tag "DOKO (1).jpg", alt: "ロゴアイコン", size: "60x50" %>
         <% end %>
 
          <!--検索窓-->
@@ -63,7 +63,7 @@
   </header>
 
   <main class= "pt-5" style= "background-color: azure;">
-    <div class= "container">
+    <div class= "container-lg">
       <div class= "row">
         <div class= "col-3">
           <%= render "layouts/ranking",tags: @tag_ranks, posts: @post_favo_ranks %>
