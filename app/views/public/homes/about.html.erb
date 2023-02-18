@@ -1,25 +1,36 @@
-<div>
+<div class= "text-center">
   <h1>サイト概要</h1>
-  <p>
-    映画のワンシーンのような美しい景色を実際に観たい、身近だが季節や時間帯によって<br>
-    大きく化ける風景を皆で共有して教えあってその情景を味わいたい、実際にその場所に行けなくても<br>
-    美しい景色を追体験したい方同士に向けたコミュニティサイトです。
-    コロナ禍の現在、美しい風景やエモーショナルな情景を目の当たりにする機会が減ってきているため<br>
+  <p class= "d-flex flex-wrap mb-5">
+    映画のワンシーンのような美しい景色を実際に観たい、身近だが季節や時間帯によって
+    大きく化ける風景を皆で共有して教えあってその情景を味わいたい、実際にその場所に行けなくても
+    美しい景色を追体験したい方同士に向けたコミュニティサイトです。<br>
+    コロナ禍の現在、美しい風景やエモーショナルな情景を目の当たりにする機会が減ってきているため
     心動かされる美しい風景をインターネット上で共有しあって、皆で心の安寧を保っていければ幸いです
   </p>
 
-  <!--画像のカルーセル3枚ほど-->
-  <div class="carousel slide" data-ride="carousel">
+  <!--画像のカルーセル4枚ほど-->
+  <div id= "about_image" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <%= image_tag 'photo0000-3551.jpg', alt: 'top用画像', size: '1000x750', class: "img-fluid" %>
       </div>
       <div class="carousel-item">
-        <%= image_tag 'photo0000-6152.jpg', alt: 'top用画像', size: '1000x750', class: "img-fluid" %>
+        <%= image_tag 'photo0000-2542.jpg', alt: 'top用画像', size: '1000x750', class: "img-fluid" %>
       </div>
       <div class="carousel-item">
-        <%= image_tag 'photo0000-7105.jpg', alt: 'top用画像', size: '1000x750', class: "img-fluid" %>
+        <%= image_tag 'photo0000-1899.jpg', alt: 'top用画像', size: '1000x750', class: "img-fluid" %>
       </div>
+      <div class="carousel-item">
+        <%= image_tag 'photo0000-4052.jpg', alt: 'top用画像', size: '1000x750', class: "img-fluid" %>
+      </div>
+      <a class="carousel-control-prev" href="#about_image" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#about_image" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
   </div>
 </div>
