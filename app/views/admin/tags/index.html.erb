@@ -1,16 +1,13 @@
-<div class= "container">
-  <div class= "row">
-    <h3>タグ一覧</h3>
-  </div>
+<div class= "row">
+  <h3>タグ一覧</h3>
+</div>
 
-  <div class= "row">
-    <div class= "col-auto">
-      <% @tags.each do |tag| %>
-        <span class= "m-3">
-          <%= tag.name %>
-          <%= link_to "削除", admin_tag_path(tag), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-sm" %>
-        </span>
-      <% end %>
-    </div>
-  </div>
+<div class= "row">
+  <% @tags.each do |tag| %>
+    <span class= "border border-dark p-1 m-2">
+      <span class="badge badge-pill badge-warning"><%= tag.name %></span>
+      <%= link_to "削除", admin_tag_path(tag), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-sm" %>
+    </span>
+  <% end %>
+  <%= paginate @tags %>
 </div>
