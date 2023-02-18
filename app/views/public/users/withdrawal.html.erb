@@ -5,14 +5,14 @@
      <% if @user.email == "guest@gmail.com" %>
        ゲストユーザーは退会できません
      <% else %>
-      <h3>本当に退会しますか？</h3>
+      <h1 class="display-3">本当に退会しますか？</h1>
 
-       <p>退会すると、マイページ編集が不可能となり</br>
-       <p>ブックマークリストが見れなくなります。</br>
+       <p>退会すると、このアカウントは使用不可能となり</br>
+       <p>ブックマークリスト等が見れなくなります。</br>
        <p>退会する場合は、「退会する」をクリックしてください。</br></p>
 
        <%= link_to "退会しない", my_page_path, class: "btn btn-sm btn-success" %>
-       <%= link_to "退会する", status_path, method: :patch, class: "btn btn-sm btn-danger" %>
+       <%= link_to "退会する", status_path, method: :patch, data: { confirm: "本当に退会しますか？" }, class: "btn btn-sm btn-danger" %>
      <% end %>
      </div>
     </div>
