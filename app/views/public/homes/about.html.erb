@@ -1,11 +1,25 @@
 <div>
   <h1>サイト概要</h1>
-  <p c>
+  <p>
     映画のワンシーンのような美しい景色を実際に観たい、身近だが季節や時間帯によって<br>
     大きく化ける風景を皆で共有して教えあってその情景を味わいたい、実際にその場所に行けなくても<br>
     美しい景色を追体験したい方同士に向けたコミュニティサイトです。
     コロナ禍の現在、美しい風景やエモーショナルな情景を目の当たりにする機会が減ってきているため<br>
     心動かされる美しい風景をインターネット上で共有しあって、皆で心の安寧を保っていければ幸いです
   </p>
-  <%= image_tag 'photo0000-3551.jpg', alt: 'top用画像', size: '1000x750', class: "img-fluid" %>
+
+  <!--画像のカルーセル3枚ほど-->
+  <div class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag 'photo0000-3551.jpg', alt: 'top用画像', size: '1000x750', class: "img-fluid" %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag 'photo0000-6152.jpg', alt: 'top用画像', size: '1000x750', class: "img-fluid" %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag 'photo0000-7105.jpg', alt: 'top用画像', size: '1000x750', class: "img-fluid" %>
+      </div>
+    </div>
+  </div>
 </div>
