@@ -1,32 +1,28 @@
-<div class= "container">
+<% if params[:q].present? && params[:q][:title_or_body_or_location_cont].present? %>
+  <div class= "row">
+    <h2><%= params[:q][:title_or_body_or_location_cont] %>の検索結果一覧</h2>
+  </div>
 
-  <% if params[:q].present? && params[:q][:title_or_body_or_location_cont].present? %>
-    <div class= "row">
-      <h2><%= params[:q][:title_or_body_or_location_cont] %>の検索結果一覧</h2>
-    </div>
-
-    <div class= "row">
-      <div class= "col-auto">
-        <div class= "d-flex flex-wrap">
-        <!--post_image=投稿物、投稿を4つごとに折り返す-->
-          <%= render "public/posts/list", posts: @search_result %>
-        </div>
+  <div class= "row">
+    <div class= "col-auto">
+      <div class= "d-flex flex-wrap">
+      <!--post_image=投稿物、投稿を4つごとに折り返す-->
+        <%= render "public/posts/list", posts: @search_result %>
       </div>
     </div>
+  </div>
 
-  <% else %>
-    <div class= "row">
-      <h2>投稿一覧</h2>
-    </div>
+<% else %>
+  <div class= "row">
+    <h2>投稿一覧</h2>
+  </div>
 
-    <div class= "row">
-      <div class= "col-auto">
-        <div class= "d-flex flex-wrap">
-        <!--post_image=投稿物、投稿を4つごとに折り返す-->
-          <%= render "public/posts/list", posts: @posts %>
-        </div>
+  <div class= "row">
+    <div class= "col-auto">
+      <div class= "d-flex flex-wrap">
+      <!--post_image=投稿物、投稿を4つごとに折り返す-->
+        <%= render "public/posts/list", posts: @posts %>
       </div>
     </div>
-  <% end %>
-
-</div>
+  </div>
+<% end %>

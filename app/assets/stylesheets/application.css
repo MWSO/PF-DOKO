@@ -13,7 +13,12 @@
  *= require_tree .
  *= require_self
  */
-@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500&display=swap');
-*{
-  font-family: 'Shippori Mincho', serif;
+.top-back{
+  height: 500px;
+  background-size: cover;
+}
+
+.login-button{
+  text-align: center;
+  padding: 60px 10px 10px 10px;
 }
