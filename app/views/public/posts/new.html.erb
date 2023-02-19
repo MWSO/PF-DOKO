@@ -1,41 +1,38 @@
-<div class= "container">
-  <div class= "row">
-    <h2>新規投稿</h2>
-  </div>
+<div class= "row">
+  <div class= "col-auto mx-auto">
+    <h2 class= "mb-3">新規投稿</h2>
+    <!--エラーメッセージ-->
+    <%= render "layouts/errors", model: @post %>
+    <!--新規投稿フォーム-->
+    <%= form_with model: @post do |f| %>
+      <div class="form-group">
+        <%= f.label :post_image, "写真投稿" %>
+        <%= f.file_field :post_image, class: "form-control-file" %>
+      </div>
 
-  <div class= "row">
-    <div class= "mx-auto">
-      <%= render "layouts/errors", model: @post %>
-      <%= form_with model: @post do |f| %>
-        <div class="form-group">
-          <%= f.label :post_image, "写真投稿" %>
-          <%= f.file_field :post_image %>
-        </div>
+      <div class="form-group">
+        <%= f.label :title, "題名" %>
+        <%= f.text_field :title, placeholder: "今年の初雪", class: "form-control" %>
+      </div>
 
-        <div class="form-group">
-          <%= f.label :title, "題名" %>
-          <%= f.text_field :title, placeholder: "今年の初雪" %>
-        </div>
+      <div class="form-group">
+        <%= f.label :body, "説明文" %>
+        <%= f.text_area :body, placeholder: "写真のポイント、季節、こだわりの点", class: "form-control" %>
+      </div>
 
-        <div class="form-group">
-          <%= f.label :body, "説明文" %>
-          <%= f.text_area :body, placeholder: "写真のポイント、季節、こだわりの点" %>
-        </div>
+      <div class="form-group">
+        <%= f.label :location, "場所" %>
+        <%= f.text_field :location, placeholder: "地名・建造物名", class: "form-control" %>
+      </div>
 
-        <div class="form-group">
-          <%= f.label :location, "場所" %>
-          <%= f.text_field :location, placeholder: "地名・建造物名" %>
-        </div>
+      <div class= "form_group">
+        <%= f.label "タグ登録(複数のタグを登録する際は半角スペースで区切ってください)" %>
+        <%= f.text_field :name, class: "form-control", class: "form-control" %>
+      </div>
 
-        <div class= "form_group">
-          <%= f.label "タグ登録(複数のタグを登録する際は半角スペースで区切ってください)" %>
-          <%= f.text_field :name, class: "form-control" %>
-        </div>
-
-　　　　<div class="form-group">
-          <%= f.submit "投稿する", class: "btn btn-success btn-block" %>
-        </div>
-      <% end %>
-    </div>
+      <div class="form-group">
+        <%= f.submit "投稿する", class: "btn btn-success btn-block mt-3" %>
+      </div>
+    <% end %>
   </div>
 </div>
