@@ -6,9 +6,9 @@
   <%= render "public/users/info", user: @user %>
 </div>
 
-<div class= "row">
+<div class= "row mt-3">
   <div class= "d-flex">
-    <h3 class= "">自分の投稿一覧</h3>
+    <h3>自分の投稿一覧</h3>
     <%= link_to new_post_path, class: "btn btn-primary" do %>
       <i class="fas fa-plus"></i> 新規投稿
     <% end %>

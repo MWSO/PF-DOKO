@@ -3,12 +3,12 @@ class Public::UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(18)
   end
 
   def show
     @user = User.find(params[:id])
-    @post = @user.posts.all
+    @post = @user.posts.all.page(params[:page]).per(12)
   end
 
   def edit
@@ -30,7 +30,7 @@ class Public::UsersController < ApplicationController
 
   def my_page
     @user = current_user
-    @post = @user.posts.all
+    @post = @user.posts.all.page(params[:page]).per(12)
   end
 
   def withdrawal

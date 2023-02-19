@@ -4,7 +4,7 @@
     <!--post_image=投稿物、投稿を4つごとに折り返す-->
       <% posts.each do |post_image| %>
         <%= link_to post_path(post_image) do %>
-          <div class="clearfix border p-3 border-info">
+          <div class="clearfix border p-3 border-info m-3">
             <div class="float-none mb-2">
               <%= image_tag post_image.get_post_image(200,200), class: "img-fluid" %>
             </div>
@@ -17,9 +17,10 @@
           </div>
         <% end %>
       <% end %>
-
+　
     <% else %>
-      <%= user.name %>さんの投稿はありません。
+      <h3><%= user.name %>さんの投稿はありません。</h3>
     <% end %>
   </div>
+  <%= paginate posts %>
 </div>

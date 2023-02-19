@@ -2,7 +2,7 @@
   <%= link_to post_path(post_image) do %>
     <div class="clearfix border p-3 border-info m-3">
       <div class="float-none mb-2">
-        <%= image_tag post_image.get_post_image(200,200), class: "pb-2" %>
+        <%= image_tag post_image.get_post_image(200,200), size: "200x150", class: "pb-2" %>
       </div>
       <div class= "text-center">
         <%= post_image.title %>
@@ -13,3 +13,4 @@
     </div>
   <% end %>
 <% end %>
+<%= paginate posts %>

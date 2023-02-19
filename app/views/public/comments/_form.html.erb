@@ -1,7 +1,7 @@
 <%= form_with model: [post_image, comment] do |f| %>
-  <div class= "form-group">
-    <%= f.label :comment, "コメント入力欄" %>
-    <%= f.text_area :comment, row: "5", placeholder: "コメント" %>
-    <%= f.submit "送信", class: "btn btn-success" %>
+  <div class= "form-group row">
+    <%= f.label :comment, "コメント入力欄", class: "col-5" %>
+    <%= f.text_area :comment, row: "5", placeholder: "コメント", class: "form-control col-5" %>
+    <%= f.submit "送信", class: "btn btn-success col-2" %>
   </div>
 <% end %>

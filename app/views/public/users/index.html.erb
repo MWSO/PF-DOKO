@@ -9,10 +9,10 @@
         <% if user.email == "guest@gmail.com" %>
         <% elsif user.is_deleted == true %>
         <% else %>
-          <div class= "mr-3">
+          <div class= "card m-3">
             <%= link_to user_path(user) do %>
-              <div><%= image_tag user.get_profile_image(200,200) %></div>
-              <div>
+              <div class= "card-imag-top"><%= image_tag user.get_profile_image(200,200) %></div>
+              <div class= "card-body">
                 名前:<%= user.name %><br>
                 好きな風景:<%= user.like %>
               </div>
