@@ -12,7 +12,7 @@
       <div>ロケーション：<%= @post.location %></div>
       <div>タグ:
         <% @post_tags.each do |tag| %>
-            <%= tag.name %><%= "(#{tag.posts.count})" %>
+          <span class="badge badge-dark"><%= tag.name %></span><%= "(#{tag.posts.count})" %>
         <% end %>
       </div>
       <div><%= link_to "投稿削除", admin_post_path(@post), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-block" %></div>
