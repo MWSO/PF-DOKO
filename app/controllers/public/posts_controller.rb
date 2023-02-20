@@ -21,7 +21,7 @@ class Public::PostsController < ApplicationController
     @posts = Post.all.page(params[:page]).per(18)
     @tag_list = Tag.all
     @search_posts = Post.ransack(params[:q])
-    @search_result = @search_posts.result
+    @search_result = @search_posts.result.page(params[:page]).per(18)
   end
 
   def show
