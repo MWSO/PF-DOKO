@@ -17,7 +17,7 @@
         <div class= "container">
           <!--ロゴ、ホームへのリンク-->
           <%= link_to root_path do %>
-            <%= image_tag "DOKO (1).jpg", alt: "ロゴアイコン", size: "60x50" %>
+            <%= image_tag "DOKO (1).jpg", alt: "ロゴアイコン", size: "80x80", class: "navbar-brand" %>
           <% end %>
 
            <!--検索窓-->
@@ -39,25 +39,25 @@
               <!--利用者サインイン時-->
               <% if user_signed_in? %>
                 <div class= "pl-3 pr-3">ようこそ、<%= current_user.name %>さん！</div>
-                <li class= "nav-item pl-3 pr-3"><%= link_to "マイページ", my_page_path, class: "text-white" %></li>
-                <li class= "nav-item pl-3 pr-3"><%= link_to "投稿一覧", posts_path, class: "text-white" %></li>
-                <li class= "nav-item pl-3 pr-3"><%= link_to "タグ一覧", tags_path, class: "text-white" %></li>
-                <li class= "nav-item pl-3 pr-3"><%= link_to "ユーザー一覧", users_path, class: "text-white" %></li>
-                <li class= "nav-item pl-3 pr-3"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white" %></li>
+                <li class= "nav-item px-2"><%= link_to "マイページ", my_page_path, class: "text-white" %></li>
+                <li class= "nav-item px-2"><%= link_to "投稿一覧", posts_path, class: "text-white" %></li>
+                <li class= "nav-item px-2"><%= link_to "タグ一覧", tags_path, class: "text-white" %></li>
+                <li class= "nav-item px-2"><%= link_to "ユーザー一覧", users_path, class: "text-white" %></li>
+                <li class= "nav-item px-2"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white" %></li>
               <!--管理者サインイン時-->
               <% elsif admin_signed_in? %>
-                <li class= "nav-item pl-3 pr-3"><%= link_to "ユーザー一覧", admin_users_path, class: "text-white" %></li>
-                <li class= "nav-item pl-3 pr-3"><%= link_to "投稿一覧", admin_posts_path, class: "text-white" %></li>
-                <li class= "nav-item pl-3 pr-3"><%= link_to "コメント一覧", admin_comments_path, class: "text-white" %></li>
-                <li class= "nav-item pl-3 pr-3"><%= link_to "タグ一覧", admin_tags_path, class: "text-white" %></li>
-                <li class= "nav-item pl-3 pr-3"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "text-white" %></li>
+                <li class= "nav-item px-2"><%= link_to "ユーザー一覧", admin_users_path, class: "text-white" %></li>
+                <li class= "nav-item px-2"><%= link_to "投稿一覧", admin_posts_path, class: "text-white" %></li>
+                <li class= "nav-item px-2"><%= link_to "コメント一覧", admin_comments_path, class: "text-white" %></li>
+                <li class= "nav-item px-2"><%= link_to "タグ一覧", admin_tags_path, class: "text-white" %></li>
+                <li class= "nav-item px-2"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "text-white" %></li>
              <!--サインアウト時-->
              <% else %>
-                <li class= "nav-item pl-3 pr-3"><%= link_to "ホーム", root_path, class: "text-white" %></li>
-                <li class= "nav-item pl-3 pr-3"><%= link_to "サイト概要", about_path, class: "text-white" %></li>
-                <li class= "nav-item pl-3 pr-3"><%= link_to "投稿一覧", posts_path, class: "text-white" %></li>
-                <li class= "nav-item pl-3 pr-3"><%= link_to "ログイン", new_user_session_path, class: "text-white" %></li>
-                <li class= "nav-item pl-3 pr-3"><%= link_to "新規登録", new_user_registration_path, class: "text-white" %></li>
+                <li class= "nav-item px-2"><%= link_to "ホーム", root_path, class: "text-white" %></li>
+                <li class= "nav-item px-2"><%= link_to "サイト概要", about_path, class: "text-white" %></li>
+                <li class= "nav-item px-2"><%= link_to "投稿一覧", posts_path, class: "text-white" %></li>
+                <li class= "nav-item px-2"><%= link_to "ログイン", new_user_session_path, class: "text-white" %></li>
+                <li class= "nav-item px-2"><%= link_to "新規登録", new_user_registration_path, class: "text-white" %></li>
               <% end %>
             </ul>
           </div>
@@ -65,7 +65,7 @@
       </nav>
     </header>
 
-    <main class= "pt-5">
+    <main class= "py-5">
       <div class= "container-lg">
         <div class= "row">
           <div class= "col-3">
@@ -79,11 +79,15 @@
       </div>
     </main>
 
-    <footer class= "footer">
+    <footer class= "footer" style= "background-color: #48d1cc">
       <div class= "container-fluid">
         <div class= "row">
           <div class="col-auto mx-auto">
-            <p style="color: #fff; text-align: center;">CopyRight KURO</p>
+            <i class="fab fa-line" style="font-size: 2em; margin: 10px;"></i>
+            <i class="fab fa-twitter-square" style="font-size: 2em; margin: 10px;"></i>
+            <i class="fab fa-instagram" style="font-size: 2em; margin: 10px;"></i>
+            <i class="fab fa-youtube-square" style="font-size: 2em; margin: 10px;"></i>
+            <p style="text-align: center;">CopyRight Kuro</p>
           </div>
         </div>
       </div>
