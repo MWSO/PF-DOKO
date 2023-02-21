@@ -14,7 +14,7 @@
   <body  style= "background-color: azure;">
     <header style= "background-color: darkseagreen;">
       <nav class= "navbar navbar-expand-lg">
-        <div class= "container">
+        <div class= "container-fluid">
           <!--ロゴ、ホームへのリンク-->
           <%= link_to root_path do %>
             <%= image_tag "DOKO (1).jpg", alt: "ロゴアイコン", size: "80x80", class: "navbar-brand" %>
@@ -33,31 +33,31 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon text-white"><i class="fas fa-bars"></i></span>
           </button>
-          <div class= "collapse navbar-collapse" id= "navbarNavDropdown">
+          <div class= "collapse navbar-collapse justify-content-end" id= "navbarNavDropdown">
             <!--ナビバー内リンク-->
             <ul class="navbar-nav text-white">
               <!--利用者サインイン時-->
               <% if user_signed_in? %>
-                <div class= "px-2">ようこそ、<%= current_user.name %>さん！</div>
-                <li class= "nav-item px-2"><%= link_to "マイページ", my_page_path, class: "text-white" %></li>
-                <li class= "nav-item px-2"><%= link_to "投稿一覧", posts_path, class: "text-white" %></li>
-                <li class= "nav-item px-2"><%= link_to "タグ一覧", tags_path, class: "text-white" %></li>
-                <li class= "nav-item px-2"><%= link_to "ユーザー一覧", users_path, class: "text-white" %></li>
-                <li class= "nav-item px-2"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white" %></li>
+                <div class= "px-3">ようこそ、<%= current_user.name %>さん！</div>
+                <li class= "nav-item px-3"><%= link_to "マイページ", my_page_path, class: "text-white" %></li>
+                <li class= "nav-item px-3"><%= link_to "投稿一覧", posts_path, class: "text-white" %></li>
+                <li class= "nav-item px-3"><%= link_to "タグ一覧", tags_path, class: "text-white" %></li>
+                <li class= "nav-item px-3"><%= link_to "ユーザー一覧", users_path, class: "text-white" %></li>
+                <li class= "nav-item px-3"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "text-white" %></li>
               <!--管理者サインイン時-->
               <% elsif admin_signed_in? %>
-                <li class= "nav-item px-2"><%= link_to "ユーザー一覧", admin_users_path, class: "text-white" %></li>
-                <li class= "nav-item px-2"><%= link_to "投稿一覧", admin_posts_path, class: "text-white" %></li>
-                <li class= "nav-item px-2"><%= link_to "コメント一覧", admin_comments_path, class: "text-white" %></li>
-                <li class= "nav-item px-2"><%= link_to "タグ一覧", admin_tags_path, class: "text-white" %></li>
-                <li class= "nav-item px-2"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "text-white" %></li>
+                <li class= "nav-item px-3"><%= link_to "ユーザー一覧", admin_users_path, class: "text-white" %></li>
+                <li class= "nav-item px-3"><%= link_to "投稿一覧", admin_posts_path, class: "text-white" %></li>
+                <li class= "nav-item px-3"><%= link_to "コメント一覧", admin_comments_path, class: "text-white" %></li>
+                <li class= "nav-item px-3"><%= link_to "タグ一覧", admin_tags_path, class: "text-white" %></li>
+                <li class= "nav-item px-3"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "text-white" %></li>
              <!--サインアウト時-->
              <% else %>
-                <li class= "nav-item px-2"><%= link_to "ホーム", root_path, class: "text-white" %></li>
-                <li class= "nav-item px-2"><%= link_to "サイト概要", about_path, class: "text-white" %></li>
-                <li class= "nav-item px-2"><%= link_to "投稿一覧", posts_path, class: "text-white" %></li>
-                <li class= "nav-item px-2"><%= link_to "ログイン", new_user_session_path, class: "text-white" %></li>
-                <li class= "nav-item px-2"><%= link_to "新規登録", new_user_registration_path, class: "text-white" %></li>
+                <li class= "nav-item px-3"><%= link_to "ホーム", root_path, class: "text-white" %></li>
+                <li class= "nav-item px-3"><%= link_to "サイト概要", about_path, class: "text-white" %></li>
+                <li class= "nav-item px-3"><%= link_to "投稿一覧", posts_path, class: "text-white" %></li>
+                <li class= "nav-item px-3"><%= link_to "ログイン", new_user_session_path, class: "text-white" %></li>
+                <li class= "nav-item px-3"><%= link_to "新規登録", new_user_registration_path, class: "text-white" %></li>
               <% end %>
             </ul>
           </div>

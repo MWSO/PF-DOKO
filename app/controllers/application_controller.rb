@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :rank
 
   def rank
-    @post_favo_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
-    @tag_ranks = Tag.find(TagRelation.group(:tag_id).order('count(post_id) desc').limit(5).pluck(:tag_id))
+    @post_favo_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
+    @tag_ranks = Tag.find(TagRelation.group(:tag_id).order('count(post_id) desc').limit(10).pluck(:tag_id))
   end
 
   def set_search
