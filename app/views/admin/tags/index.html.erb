@@ -5,7 +5,7 @@
 <div class= "row">
   <% @tags.each do |tag| %>
     <span class= "border border-dark p-1 m-2">
-      <span class="badge badge-pill badge-warning"><%= tag.name %></span>
+      <span class="badge badge-pill badge-info"><%= tag.name %></span>
       <%= link_to "削除", admin_tag_path(tag), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-sm" %>
     </span>
   <% end %>

@@ -13,7 +13,7 @@
       <div>タグ:
         <% @post_tags.each do |tag| %>
           <%= link_to tag_tag_relations_path(tag) do %>
-            <span class="badge badge-dark"><%= tag.name %></span><%= "(#{tag.posts.count})" %>
+            <span class="badge badge-info"><%= tag.name %></span><%= "(#{tag.posts.count})" %>
           <% end %>
         <% end %>
       </div>
