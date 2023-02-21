@@ -1,21 +1,18 @@
-<div class= "container">
-  <div class= "row">
-    <!-- 画像表示側-->
-    <div class= "col-auto">
+<div class= "row">
+  <!-- 画像表示側-->
+  <div class= "col-auto">
+    <div class= "border text-center lead p-2 mb-2", style= "background-color:#e6e6fa;">
       <%= image_tag @post.get_post_image(1000,1000), class: "img-fluid" %>
-    </div>
-
-    <div class= "col-auto">
-    <!--投稿説明文側-->
+      <!--投稿説明文側-->
       <div>タイトル：<%= @post.title %></div>
       <div>説明文：<%= @post.body %></div>
       <div>ロケーション：<%= @post.location %></div>
       <div>タグ:
         <% @post_tags.each do |tag| %>
-          <span class="badge badge-dark"><%= tag.name %></span><%= "(#{tag.posts.count})" %>
+          <span class="badge badge-info"><%= tag.name %></span><%= "(#{tag.posts.count})" %>
         <% end %>
       </div>
-      <div><%= link_to "投稿削除", admin_post_path(@post), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-block" %></div>
     </div>
+    <div><%= link_to "投稿削除", admin_post_path(@post), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger btn-block" %></div>
   </div>
 </div>

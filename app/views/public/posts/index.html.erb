@@ -15,6 +15,9 @@
 <% else %>
   <div class= "row">
     <h2>投稿一覧</h2>
+      <%= link_to new_post_path, class: "btn btn-primary mx-auto" do %>
+        <i class="fas fa-plus"></i> 新規投稿
+      <% end %>
   </div>
 
   <div class= "row">

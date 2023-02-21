@@ -6,16 +6,14 @@
   <%= render "public/users/info", user: @user %>
 </div>
 
-<div class= "row mt-3">
-  <div class= "d-flex">
-    <h3>自分の投稿一覧</h3>
-    <%= link_to new_post_path, class: "btn btn-primary" do %>
-      <i class="fas fa-plus"></i> 新規投稿
-    <% end %>
-  </div>
+<div class= "row mt-5">
+  <h3>自分の投稿一覧</h3>
+  <%= link_to new_post_path, class: "btn btn-primary mx-auto" do %>
+    <i class="fas fa-plus"></i> 新規投稿
+  <% end %>
 </div>
 
 <!-- 自分の投稿一覧 -->
-<div class= "row mt-3">
+<div class= "row mt-5">
   <%= render "public/posts/user", user: @user, posts: @post %>
 </div>
