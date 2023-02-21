@@ -7,6 +7,12 @@
       <div>タイトル：<%= @post.title %></div>
       <div>説明文：<%= @post.body %></div>
       <div>ロケーション：<%= @post.location %></div>
+      <!--投稿者ページへのリンク-->
+      <div>投稿者：
+        <%= link_to user_path(@post.user_id) do %>
+          <%= @post.user.name %>
+        <% end %>
+      </div>
       <div>タグ:
         <% @post_tags.each do |tag| %>
           <%= link_to tag_tag_relations_path(tag) do %>

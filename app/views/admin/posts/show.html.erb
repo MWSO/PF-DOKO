@@ -7,6 +7,12 @@
       <div>タイトル：<%= @post.title %></div>
       <div>説明文：<%= @post.body %></div>
       <div>ロケーション：<%= @post.location %></div>
+      <!--投稿者ページへのリンク-->
+      <div>投稿者：
+        <%= link_to admin_user_path(@post.user_id) do %>
+          <%= @post.user.name %>
+        <% end %>
+      </div>
       <div>タグ:
         <% @post_tags.each do |tag| %>
           <span class="badge badge-info"><%= tag.name %></span><%= "(#{tag.posts.count})" %>

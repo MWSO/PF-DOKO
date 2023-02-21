@@ -10,7 +10,7 @@
 
     <div class= "col-auto">
       <%= form_with model: @user, url: admin_user_path(@user) do |f| %>
-        <table class= "table">
+        <table class= "table table-borderless">
           <tr>
             <th>名前</th>
             <td> <%= @user.name %></td>
