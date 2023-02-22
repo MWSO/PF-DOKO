@@ -17,3 +17,7 @@
 <div class= "row mt-5">
   <%= render "public/posts/user", user: @user, posts: @post %>
 </div>
+
+<div class= "d-flex justify-content-center">
+  <%= paginate @post %>
+</div>

@@ -1,26 +1,29 @@
-<div class= "container">
-  <div class= "row">
-    <h2>参加者の皆様</h2>
-  </div>
+<div class= "row">
+  <h2>参加者の皆様</h2>
+</div>
 
-  <div class= "row">
-    <div class= "col-auto d-flex flex-wrap">
-      <% @users.each do |user| %>
-        <% if user.email == "guest@gmail.com" %>
-        <% elsif user.is_deleted == true %>
-        <% else %>
-          <div class= "card m-3">
-            <%= link_to user_path(user) do %>
-              <div class= "card-imag-top"><%= image_tag user.get_profile_image(200,200) %></div>
-              <div class= "card-body">
-                名前:<%= user.name %><br>
-                好きな風景:<%= user.like %>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
+<div class= "row">
+  <div class= "col-auto d-flex flex-wrap">
+    <% @users.each do |user| %>
+      <% if user.email == "guest@gmail.com" %>
+      <% elsif user.is_deleted == true %>
+      <% else %>
+        <div class= "card m-3">
+          <%= link_to user_path(user) do %>
+            <div class= "card-imag-top"><%= image_tag user.get_profile_image(200,200) %></div>
+            <div class= "card-body">
+              名前:<%= user.name %><br>
+              好きな風景:<%= user.like %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
+
+<div class= "d-flex justify-content-center">
+  <%= paginate @users %>
+</div>
+
 

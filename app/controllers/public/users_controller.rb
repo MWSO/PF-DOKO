@@ -3,7 +3,8 @@ class Public::UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = User.all.page(params[:page]).per(18)
+    #バグによりper-1でページネーションされる
+    @users = User.all.page(params[:page]).per(19)
   end
 
   def show
@@ -47,7 +48,7 @@ class Public::UsersController < ApplicationController
   def my_list
     favorite = Favorite.where(user_id: @user.id).pluck(:post_id)
     favo_posts = Post.find(favorite)
-    @favo_posts = @posts = Kaminari.paginate_array(favo_posts).page(params[:page]).per(3)
+    @favo_posts = @posts = Kaminari.paginate_array(favo_posts).page(params[:page]).per(18)
     @post = Post.find(params[:id])
     @post_tags = @post.tags
   end
