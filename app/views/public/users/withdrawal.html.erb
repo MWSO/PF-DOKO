@@ -1,20 +1,19 @@
-<div class="container">
- <div class='row'>
+<div class='row'>
   <div class='mx-auto'>
-   <div style="text-align:center">
-     <% if @user.email == "guest@gmail.com" %>
-       ゲストユーザーは退会できません
-     <% else %>
-      <h1 class="display-3">本当に退会しますか？</h1>
+    <div style="text-align:center">
+      <% if @user.email == "guest@gmail.com" %>
+        ゲストユーザーは退会できません
+      <% else %>
+        <h1 class="display-3 mb-3">本当に退会しますか？</h1>
+        <p class= "lead my-5">
+          退会すると、このアカウントは使用不可能となり</br>
+          ブックマークリスト等が見れなくなります。</br>
+          退会する場合は、「退会する」をクリックしてください
+        </p>
 
-       <p>退会すると、このアカウントは使用不可能となり</br>
-       <p>ブックマークリスト等が見れなくなります。</br>
-       <p>退会する場合は、「退会する」をクリックしてください。</br></p>
-
-       <%= link_to "退会しない", my_page_path, class: "btn btn-sm btn-success" %>
-       <%= link_to "退会する", status_path, method: :patch, data: { confirm: "本当に退会しますか？" }, class: "btn btn-sm btn-danger" %>
-     <% end %>
-     </div>
+        <%= link_to "退会しない", my_page_path, class: "btn btn-success btn-lg mr-5" %>
+        <%= link_to "退会する", status_path, method: :patch, data: { confirm: "本当に退会しますか？" }, class: "btn btn-danger btn-lg ml-5" %>
+      <% end %>
     </div>
   </div>
 </div>
