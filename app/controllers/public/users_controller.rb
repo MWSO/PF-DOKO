@@ -46,7 +46,8 @@ class Public::UsersController < ApplicationController
 
   def my_list
     favorite = Favorite.where(user_id: @user.id).pluck(:post_id)
-    @favo_posts = Post.find(favorite)
+    favo_posts = Post.find(favorite)
+    @favo_posts = @posts = Kaminari.paginate_array(favo_posts).page(params[:page]).per(3)
     @post = Post.find(params[:id])
     @post_tags = @post.tags
   end

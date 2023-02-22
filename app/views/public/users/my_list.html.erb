@@ -1,16 +1,15 @@
-<div class= "container">
+<div class= "row">
+  <h2><%= @user.name %>さんのブックマーク</h2>
+</div>
 
-  <div class= "row">
-    <h2><%= @user.name %>さんのブックマーク</h2>
-  </div>
-
-  <div class= "row">
-    <div class= "col-auto">
-      <div class= "d-flex flex-wrap">
-      <!--post_image=投稿物、投稿を4つごとに折り返す-->
-        <%= render "public/posts/list", posts: @favo_posts %>
-      </div>
+<div class= "row">
+  <div class= "col-auto">
+    <div class= "d-flex flex-wrap">
+    <!--post_image=投稿物、投稿を4つごとに折り返す-->
+      <%= render "public/posts/list", posts: @favo_posts %>
     </div>
   </div>
-
+</div>
+<div class= "text-center">
+  <%= paginate @favo_posts %>
 </div>
