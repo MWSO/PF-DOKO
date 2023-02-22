@@ -6,7 +6,7 @@
   <% @tags.each do |tag| %>
     <% unless tag.posts.count == 0 %>
       <%= link_to tag_tag_relations_path(tag) do %>
-        <div class= "border border-dark p-1 m-2">
+        <div class= "border border-dark p-1 m-2 font">
           <span class="badge badge-pill badge-info"><%= tag.name %></span><%= "(#{tag.posts.count})" %>
         </div>
       <% end %>

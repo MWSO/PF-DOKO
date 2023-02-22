@@ -3,8 +3,8 @@ class Public::UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    #バグによりper-1でページネーションされる
-    @users = User.all.page(params[:page]).per(19)
+    #バグにより1ページ目のみper-1でページネーションされる
+    @users = User.all.page(params[:page]).per(18)
   end
 
   def show
