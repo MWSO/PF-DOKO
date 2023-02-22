@@ -3,7 +3,7 @@ class Public::CommentsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments.all.page(params[:page]).per(20)
+    @comments = @post.comments.all.order(id: "DESC").page(params[:page]).per(20)
     @comment_new = Comment.new
 
   end
