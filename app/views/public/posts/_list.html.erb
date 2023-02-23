@@ -1,15 +1,21 @@
-<% posts.each do |post_image| %>
-  <%= link_to post_path(post_image) do %>
-    <div class="clearfix border p-3 border-info m-3">
-      <div class="float-none mb-2">
-        <%= image_tag post_image.get_post_image(200,200), size: "200x150", class: "pb-2" %>
+<% if posts.present? %>
+  <% posts.each do |post_image| %>
+    <%= link_to post_path(post_image) do %>
+      <div class="clearfix border p-3 border-info m-3">
+        <div class="float-none mb-2">
+          <%= image_tag post_image.get_post_image(200,200), size: "200x150", class: "pb-2" %>
+        </div>
+        <div class= "text-center">
+          <%= post_image.title %>
+        </div>
+        <div class= "text-center">
+          <i class= "fas fa-tag"></i><%= post_image.tags.map(&:name).join(" ") %>
+        </div>
       </div>
-      <div class= "text-center">
-        <%= post_image.title %>
-      </div>
-      <div class= "text-center">
-        <i class= "fas fa-tag"></i><%= post_image.tags.map(&:name).join(" ") %>
-      </div>
-    </div>
+    <% end %>
   <% end %>
+<% else %>
+  <div class= "text-center lead mt-5">
+    投稿はありません
+  </div>
 <% end %>
