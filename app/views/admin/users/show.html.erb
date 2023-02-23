@@ -1,63 +1,74 @@
-<div class= "container">
-  <div class= "row">
-    <h2><%= @user.name %>さんのマイページ</h2>
-  </div>
-  <!-- ユーザー情報とステータス変更-->
-  <div class= "row">
-    <div class= "col-auto">
-      <%= image_tag @user.get_profile_image(300,300), class: "img-fluid" %>
-    </div>
-
-    <div class= "col-auto">
-      <%= form_with model: @user, url: admin_user_path(@user) do |f| %>
-        <table class= "table table-borderless">
-          <tr>
-            <th>名前</th>
-            <td> <%= @user.name %></td>
-          </tr>
-          <tr>
-            <th>自己紹介</th>
-            <td><%= @user.introduction %></td>
-          </tr>
-          <tr>
-            <th>好きな風景</th>
-            <td><%= @user.like %></td>
-          </tr>
-          <tr>
-            <th>会員ステータス</th>
-            <td>
-              <%= f.radio_button :is_deleted, :false %>
-              <%= f.label :is_deleted, "有効" %>
-
-              <%= f.radio_button :is_deleted, :true %>
-              <%= f.label :is_deleted, "退会" %>
-            </td>
-            <td><%= f.submit "ステータス変更", class: "btn btn-success" %></td>
-          </tr>
-        </table>
-      <% end %>
-    </div>
+<div class= "row">
+  <h2><%= @user.name %>さんのマイページ</h2>
+</div>
+<!-- ユーザー情報とステータス変更-->
+<div class= "row">
+  <div class= "col-auto">
+    <%= image_tag @user.get_profile_image(300,300), class: "img-fluid" %>
   </div>
 
-  <!-- 会員の投稿物一覧 -->
-  <div class= "row m-3">
-    <h3>投稿物</h3>
-  </div>
+  <div class= "col-auto">
+    <%= form_with model: @user, url: admin_user_path(@user) do |f| %>
+      <table class= "table table-borderless">
+        <tr>
+          <th>名前</th>
+          <td> <%= @user.name %></td>
+        </tr>
+        <tr>
+          <th>自己紹介</th>
+          <td><%= @user.introduction %></td>
+        </tr>
+        <tr>
+          <th>好きな風景</th>
+          <td><%= @user.like %></td>
+        </tr>
+        <tr>
+          <th>会員ステータス</th>
+          <td>
+            <%= f.radio_button :is_deleted, :false %>
+            <%= f.label :is_deleted, "有効" %>
 
-  <div class= "row">
-    <div class= "col-auto">
+            <%= f.radio_button :is_deleted, :true %>
+            <%= f.label :is_deleted, "退会" %>
+          </td>
+          <td><%= f.submit "ステータス変更", class: "btn btn-success" %></td>
+        </tr>
+      </table>
+    <% end %>
+  </div>
+</div>
+
+<!-- 会員の投稿物一覧 -->
+<div class= "row m-3">
+  <h3>投稿物</h3>
+</div>
+
+<div class= "row">
+  <div class= "col-auto">
+    <div class= "d-flex flex-wrap">
       <% if @posts.exists? %>
         <% @posts.each do |post_image| %>
           <%= link_to admin_post_path(post_image) do %>
-            <%= image_tag post_image.get_post_image(100,100) %>
-            <%= post_image.title %>
+            <div class= "clearfix border p-3 border-info m-3">
+              <div class="float-none mb-2">
+                <%= image_tag post_image.get_post_image(100,100) %>
+              </div>
+              <div class= "text-center">
+                <%= post_image.title %>
+              </div>
           <% end %>
-          <%= link_to "削除", admin_post_path(post_image), method: :delete, class: "btn btn-danger" %>
+            <div class= "text-center">
+              <%= link_to "削除", admin_post_path(post_image), method: :delete, data: { confirm: "削除しますか？" }, class: "btn btn-danger" %>
+            </div>
+          </div>
         <% end %>
       <% else %>
         投稿無し
       <% end %>
     </div>
   </div>
+</div>
 
+<div class= "d-flex justify-content-center">
+  <%= paginate @posts %>
 </div>
