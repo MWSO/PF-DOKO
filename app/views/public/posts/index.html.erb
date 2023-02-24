@@ -1,4 +1,22 @@
-<% if params[:q].present? && params[:q][:title_or_body_or_location_cont].present? %>
+<!-- タグ＆キーワード検索結果-->
+<% if params[:q].present? && params[:q][:tags_name_cont].present? && params[:q][:title_or_body_or_location_cont].present? %>
+  <div class= "row">
+    <h2><%= params[:q][:tags_name_cont] %>タグ付きの<%= params[:q][:title_or_body_or_location_cont] %>の検索結果一覧</h2>
+  </div>
+
+  <div class= "row">
+    <div class= "col-auto">
+      <div class= "d-flex flex-wrap">
+      <!--post_image=投稿物、投稿を4つごとに折り返す-->
+        <%= render "public/posts/list", posts: @search_result %>
+      </div>
+    </div>
+  </div>
+  <div class= "d-flex justify-content-center">
+    <%= paginate @search_result %>
+  </div>
+<!--キーワード検索結果-->
+<% elsif params[:q].present? && params[:q][:title_or_body_or_location_cont].present? %>
   <div class= "row">
     <h2><%= params[:q][:title_or_body_or_location_cont] %>の検索結果一覧</h2>
   </div>
@@ -14,7 +32,24 @@
   <div class= "d-flex justify-content-center">
     <%= paginate @search_result %>
   </div>
+<!--タグ検索結果-->
+<% elsif params[:q].present? && params[:q][:tags_name_cont].present? %>
+  <div class= "row">
+    <h2><%= params[:q][:tags_name_cont] %>の検索結果一覧</h2>
+  </div>
 
+  <div class= "row">
+    <div class= "col-auto">
+      <div class= "d-flex flex-wrap">
+      <!--post_image=投稿物、投稿を4つごとに折り返す-->
+        <%= render "public/posts/list", posts: @search_result %>
+      </div>
+    </div>
+  </div>
+  <div class= "d-flex justify-content-center">
+    <%= paginate @search_result %>
+  </div>
+<!--通常の一覧-->
 <% else %>
   <div class= "row">
     <h2>投稿一覧</h2>

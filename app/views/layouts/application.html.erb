@@ -24,6 +24,7 @@
           <div class= "text-white">
             <%= search_form_for @search_posts, url: posts_path do |f| %>
               <%= f.label :title_or_body_or_location_cont, "写真検索" %>
+              <%= f.text_field :tags_name_cont, placeholder: "タグ検索" %>
               <%= f.text_field :title_or_body_or_location_cont, placeholder: "キーワードを入力" %>
               <%= f.submit "検索する", class: "btn btn-success btn-sm" %>
             <% end %>
