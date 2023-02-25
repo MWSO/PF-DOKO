@@ -28,6 +28,7 @@
 ワイヤーフレーム: https://drive.google.com/file/d/1IzmZbtfqDVVDkwxUN1t1iMpUNkey0qnz/view?usp=sharing <br>
 ER図: https://drive.google.com/file/d/1T28IRi4Y1LI0x6m0mCSjQYAvxEdwnhHR/view?usp=sharing <br>
 テーブル定義書: https://docs.google.com/spreadsheets/d/1XFlTQKQ3fesjk7PW1l0Qah4z5Qo5OUPsoLPmweZpm9A/edit?usp=sharing <br>
+テスト仕様書: https://docs.google.com/spreadsheets/d/10vJO9ykaZ6WjKHfjk1rZxk_MveY1vHgM/edit?usp=sharing&ouid=116071692776215054702&rtpof=true&sd=true
 
 ## ULFlow：
 - OS：Linux(CentOS)
