@@ -3,16 +3,25 @@
     <% comments.each do |comment| %>
     <tr>
       <td>
-        <%= link_to user_path(comment.user) do %>
-          <%= image_tag comment.user.get_profile_image(50,50), class: "image-fluid" %>
-          <%= comment.user.name %>
+        <% if current_user %>
+          <%= link_to user_path(comment.user) do %>
+            <%= image_tag comment.user.get_profile_image(50,50), class: "image-fluid" %>
+            <%= comment.user.name %>
+          <% end %>
+        <% elsif current_admin %>
+          <%= link_to admin_user_path(comment.user) do %>
+            <%= image_tag comment.user.get_profile_image(50,50), class: "image-fluid" %>
+            <%= comment.user.name %>
+          <% end %>
         <% end %>
       </td>
       <td><%= comment.comment %></td>
       <td>(<%= comment.created_at.strftime("%Y/%m/%d %H:%M") %>)</td>
       <td>
-        <% if comment.user == current_user || current_admin %>
+        <% if comment.user == current_user %>
           <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class: "btn btn-danger", data: { confirm: '本当に消しますか？' } %>
+        <% elsif current_admin %>
+          <%= link_to "削除", admin_comment_path(comment), method: :delete, class: "btn btn-danger", data: { confirm: '本当に消しますか？' } %>
         <% end %>
       </td>
     </tr>
