@@ -10,7 +10,13 @@ class Public::PostsController < ApplicationController
       @post.user_id = current_user.id
       tag_list = params[:post][:name].split(nil)
       if @post.save
+        #手動タグ付け
         @post.save_tag(tag_list)
+        #AIによるタグ付け
+        if tag_list.count == 0
+          tags = Vision.get_image_data(@post.post_image)
+          @post.save_tag(tags)
+        end
         redirect_to post_path(@post)
       else
         render :new
@@ -41,8 +47,14 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.user_id == current_user.id
       if @post.update(post_params)
+        #手動タグ付け
         input_tags = params[:post][:name].split(nil)
+        #AIによるタグ付け
         @post.update_tags(input_tags)
+        if input_tags.count == 0
+          tags = Vision.get_image_data(@post.post_image)
+          @post.update_tags(tags)
+        end
         redirect_to post_path(@post)
       else
         render :edit
