@@ -6,3 +6,7 @@
   font-family: 'Sawarabi Gothic', sans-serif;
 }
 
+body, html { font-size: 20px; }
+@media screen and (max-width: 575px) { body, html { font-size: 0.75rem; } }
+@media screen and (min-width: 576px) and (max-width: 768px) { body, html { font-size: 0.8rem; } }
+
