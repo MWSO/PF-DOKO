@@ -40,3 +40,6 @@ ER図: https://drive.google.com/file/d/1T28IRi4Y1LI0x6m0mCSjQYAvxEdwnhHR/view?us
 ## 使用素材
 - サイトロゴ作成: Canva(https://www.canva.com/ja_jp/create/logos/)
 - トップ・アバウトページ使用画像: Photock(https://www.photock.jp/)
+## 使用したAPI
+- Google Vision API
+- Google Translate API
