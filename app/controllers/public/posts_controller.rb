@@ -15,7 +15,16 @@ class Public::PostsController < ApplicationController
         #AIによるタグ付け
         if tag_list.count == 0
           tags = Vision.get_image_data(@post.post_image)
-          @post.save_tag(tags)
+          #AIタグの日本語化
+          project_id = ENV["CLOUD_PROJECT_ID"]
+          translate   = Google::Cloud::Translate.new version: :v2, project_id: project_id
+          target = "ja"
+          ja_tags = []
+          tags.each do |tag|
+            @translation = translate.translate tag, to: target
+            ja_tags.push(@translation.text)
+          end
+          @post.save_tag(ja_tags)
         end
         redirect_to post_path(@post)
       else
@@ -53,7 +62,16 @@ class Public::PostsController < ApplicationController
         @post.update_tags(input_tags)
         if input_tags.count == 0
           tags = Vision.get_image_data(@post.post_image)
-          @post.update_tags(tags)
+          #AIタグの日本語化
+          project_id = ENV["CLOUD_PROJECT_ID"]
+          translate   = Google::Cloud::Translate.new version: :v2, project_id: project_id
+          target = "ja"
+          ja_tags = []
+          tags.each do |tag|
+            @translation = translate.translate tag, to: target
+            ja_tags.push(@translation.text)
+          end
+          @post.update_tags(ja_tags)
         end
         redirect_to post_path(@post)
       else
